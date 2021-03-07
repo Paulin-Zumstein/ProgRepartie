@@ -1,16 +1,22 @@
 package TD4;
 
 public class Affiche extends Thread{
-    private Nombres nom;
+    private Nombres nombre;
 
     public Affiche(Nombres nom){
-        this.nom = nom;
+        this.nombre = nom;
     }
 
     public void run(){
-        for (int i = 0; i < 10; i++) {
+
+        //On dort un peu pour s'assurer que le threads calcul commence a travailler sur nombre avant le thread affiche
+        try {
+            Thread.sleep(150); // milliseconds
+        }catch (InterruptedException e){}
+
+        for (int i = 1; i < 11; i++) {
             System.out.println( " Affiche " + i );
-            nom.affiche();
+            nombre.affiche();
             try {
                 Thread.sleep(150);
             } catch ( InterruptedException e ) {}

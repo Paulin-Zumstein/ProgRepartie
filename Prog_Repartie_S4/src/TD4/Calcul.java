@@ -1,16 +1,16 @@
 package TD4;
 
 public class Calcul extends Thread{
-    private Nombres nom;
+    private Nombres nombre;
 
     public Calcul(Nombres nom) {
-        this.nom = nom;
+        this.nombre = nom;
     }
 
     public void run(){
-        for (int i = 0; i< 10; i++){
+        for (int i = 1; i< 11; i++){
             System.out.println( "calcul " + i );
-            nom.calcul();
+            nombre.calcul();
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {}
