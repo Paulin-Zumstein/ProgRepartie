@@ -13,7 +13,7 @@ class BalSimple {
 
     public void deposeRequete(String mess) {
 
-        // j'attend que la boite aux lettres soit libre
+        // j'attend que la boite aux lettres soit libre puis je la rend indisponible
         try { sDepot.acquire(); } catch (InterruptedException e) {e.printStackTrace();}
 
         // je fais mon action

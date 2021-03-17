@@ -12,14 +12,25 @@ public class ServeurQR implements Runnable{
 
     @Override
     public void run() {
-        int i = 0;
+        int i = 1;
         while (true){
-            try {
-                Thread.sleep(random.nextInt(200) + 100);
-            } catch (InterruptedException e) { e.printStackTrace(); }
+
+            // petit dodo
+            try { Thread.sleep(random.nextInt(200)); } catch (InterruptedException e) { e.printStackTrace(); }
+
+            // on récupère la question
             try{
-                System.out.println("Je suis le serveur " + i + " et je lis ca" + bal.retireRequete());
+                String mess = bal.retirerQ();
+                System.out.println("Je suis le serveur au tour de boucle " + i + " et je lis ca        |        " +  mess );
+
+                // petit dodo
+                try { Thread.sleep(random.nextInt(200)); } catch (InterruptedException e) { e.printStackTrace(); }
+
+                // on dépose notre réponse dans la boite aux lettres
+                bal.deposerR(i + "ème reponse");
+
             } catch (Exception e) {e.printStackTrace();}
+
             i++;
         }
         //System.out.println("Serveur fini");
