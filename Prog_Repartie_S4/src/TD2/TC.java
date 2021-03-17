@@ -56,6 +56,8 @@ public class TC implements Callable<Integer> {
             }
             catch (ExecutionException e){}
             catch (InterruptedException e){}
+
+            // ferme l'entrée càd qu'il n'y a plus d'execute() possible
             executorService.shutdown();
         }
     }

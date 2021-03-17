@@ -1,4 +1,4 @@
-package TD5;
+package TD5.ex1;
 
 import java.util.concurrent.Semaphore;
 
