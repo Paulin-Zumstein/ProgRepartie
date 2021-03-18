@@ -23,6 +23,9 @@ release() incrémente le(s) jeton(s)
 
 Semaphore sem1 = new Semaphore(1, true); ----> La valeur true permet une gestion FIFO des tâches en attente sur ce sémaphore.
 
+Un semaphore initialisé avec nb en paramètre signifique ce derniers laisse augmenter son jeton jusqu'à nb sans faire de 
+blocage. Ainsi il bloque l'accès une fois arrivé a nb.
+
 ####Question 3
 Si on met une seule place dans notre ExecutorService alors seul le premiers threads pourra s'exécuter. Puisque ce threads
 attend que les suivants s'executent et que les suivantes ne pouvant pas rentrer dans le ExcutorService sont en attend de la 

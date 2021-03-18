@@ -24,7 +24,6 @@ C'est surtout le comportement de la boite aux lettres qui change paraport au pre
 dernière utilise 3 semaphores pour eviter les accès concurrenciels.
 
 
-
-
 ##Exercice 3
-voir photos
+Les problèmes de synchronisation qui peuvent se produire si deux requêtes sont déposées simultanément dans la boîte aux 
+lettres. On peut les résoudre en ajoutant des verrous là où c’est nécessaire.

@@ -15,10 +15,10 @@ class BalTable {
         this.indiceDepot = 0;
         this.indiceRetrait = 0;
 
-        // represente le nombre de cases vides ------------- ce semaphore accept nb appels non bloquants
+        // represente le nombre de cases vides -------- ce semaphore accept nb appels non bloquants -------- CE SÉMAPHORE SERA BLOQUÉ UNIQUEMENT QUAND IL N'Y AURA PLUS DE CASES VIDE
         sDepot = new Semaphore(nb, true);
 
-        // represente le nombre de requete fait en attente de traitement ------------- ce semaphore accept 0 appels non bloquants
+        // represente le nombre de requete fait en attente de traitement --------- ce semaphore accept 0 appels non bloquants
         sRetrait = new Semaphore(0, true);
     }
 
@@ -49,7 +49,7 @@ class BalTable {
         indiceRetrait++;
         if (indiceRetrait == nb) indiceRetrait = 0;
 
-        // on
+        // on libaire un ticket
         sDepot.release();
         return mess;
     }
