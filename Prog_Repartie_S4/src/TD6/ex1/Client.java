@@ -9,23 +9,31 @@ public class Client {
 
     public static void main(String[] args) throws Exception {
 
-        // le socket vers le serveur
+        // Création de la socket de connection au serveur avec ses coordonnées données en paramètre
         Socket socket = new Socket(args[0], 6020);
 
-        // Les  messages sont saisis du clavier :Scanner
-        // Un BufferedReader permet de lire par ligne
+        // On affecte un objet scanner au flux d'entré de la socket (lecture)
         Scanner ins = new Scanner( new InputStreamReader (socket.getInputStream()) );
+
+        // On affecte un objet scanner au flux d'entré clavier
         Scanner cons = new Scanner(System.in);
 
-        // Un PrintWriter pou les opérations print
+        // On créé un objet PrintWriter relié au stream de sortie de la socket  -->  ecrivain
         PrintWriter outs = new PrintWriter( new BufferedWriter ( new OutputStreamWriter (socket.getOutputStream()) ), true);
         String rep;
         String req;
 
         while(true) {
-            req = cons.nextLine(); //console
-            outs.println(req);      // envoi du message
-            rep = ins.nextLine();   // lecture de a reponse
+
+            // On récupère l'entrée clavier  //console
+            req = cons.nextLine();
+
+            // On write dans la socket pour l'envoyer  // envoi du message
+            outs.println(req);
+
+            // On regarde la réponse  // lecture de a reponse
+            rep = ins.nextLine();
+
             if (req.equals("stop"))
                 break;
         }
